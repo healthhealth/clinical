@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Escandinavos Premium */
+        /* Cores */
+        :root {
+            --main-green: #00502e; /* Verde escuro do logo OrCann */
+            --light-green: #6b876f; /* Verde acinzentado do logo OrCann */
+            --background-gray: #f8f8f8; /* Cinza claro para o fundo */
+            --text-gray: #333; /* Cinza escuro para texto principal */
+            --title-gray: #1a1a1a; /* Cinza bem escuro para títulos */
+        }
+
+        /* Estilos */
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333; /* Texto cinza escuro */
-            background-color: #f8f8f8; /* Fundo cinza claro */
+            color: var(--text-gray);
+            background-color: var(--background-gray);
         }
         @media print {
             body {
@@ -30,9 +39,9 @@
             margin-right: auto;
             padding: 2rem;
         }
-        h1, h2, h3, h4 {
-            font-family: 'Lora', serif;
-            color: #1a1a1a; /* Títulos em preto */
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--main-green);
             font-weight: 600;
         }
         h1 {
@@ -49,29 +58,31 @@
             margin-top: 1.5rem;
         }
         h4 {
-            font-size: 1.2rem;
+            font-family: 'Roboto', sans-serif;
+            color: var(--light-green);
+            font-size: 1.1rem;
             margin-top: 1rem;
             font-weight: 400;
         }
         .section-title {
-            border-bottom: 1px solid #ccc; /* Linha separadora fina */
+            border-bottom: 1px solid var(--light-green);
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
         }
         .btn {
-            background-color: #444; /* Cinza escuro */
+            background-color: var(--main-green);
             color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 0; /* Botão retangular */
             text-decoration: none;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 1rem;
             cursor: pointer;
             border: none;
             transition: background-color 0.3s ease;
         }
         .btn:hover {
-            background-color: #222; /* Cinza mais escuro */
+            background-color: #00381f;
         }
         .mt-4 {
             margin-top: 1rem;
@@ -97,11 +108,11 @@
         .font-bold {
             font-weight: 700;
         }
-        .text-gray-800 {
-            color: #1a1a1a; /* Preto para o nome */
+        .text-main-green {
+            color: var(--main-green);
         }
         .text-gray-600 {
-            color: #444; /* Cinza escuro para subtítulo */
+            color: var(--light-green);
         }
         .text-xl {
             font-size: 1.1rem;
@@ -118,7 +129,7 @@
         }
         .border-b {
             border-bottom-width: 1px;
-            border-color: #ccc;
+            border-color: var(--light-green);
         }
         .pb-2 {
             padding-bottom: 0.5rem;
@@ -128,7 +139,7 @@
 <body class="text-gray-800">
     <div class="container mx-auto">
         <header class="text-center mb-8">
-            <h1 class="font-bold">Dr. Gustavo Mendes e Silva</h1>
+            <h1 class="font-bold text-main-green">Dr. Gustavo Mendes e Silva</h1>
             <h2 class="text-gray-600 text-xl mt-2">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
             <div class="mt-4 flex justify-center space-x-4">
                 <a href="mailto:dr@orcann.com" class="btn">E-mail</a>
@@ -357,7 +368,7 @@
                     <li>Dependência química</li>
                     <li>Psiquiatria infantojuvenil</li>
                 </ul>
-                </div>
+            </div>
             <div class="mb-6">
                 <h4 class="border-b pb-2 mb-4">Medicina Digital e Tecnologias Assistenciais</h4>
                 <ul class="space-y-4">
