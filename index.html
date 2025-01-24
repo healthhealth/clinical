@@ -6,41 +6,53 @@
     <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Escandinavos */
+        /* Estilos Sofisticados para Impressão */
         body {
-            font-family: 'Helvetica', Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            background-color: #f8f8f8; /* Fundo branco suave */
             color: #333; /* Cinza escuro para texto */
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c7d2cb' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E"); /* Textura de fundo sutil */
+            background-color: #fff; /* Fundo branco para impressão */
+        }
+        @media print {
+            body {
+                background-color: #fff; /* Garante fundo branco na impressão */
+            }
+            .container {
+                box-shadow: none; /* Remove sombras na impressão */
+            }
         }
         .container {
             max-width: 850px;
-            box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2); /* Sombra sutil para o container */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para o container */
             background-color: white;
-            border-radius: 10px;
+            border-radius: 0; /* Bordas retas */
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
         h1, h2, h3, h4 {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto Serif', serif;
             color: #2c3e50; /* Azul escuro para títulos */
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
         }
         h2 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-        }
-        h3 {
             font-size: 1.5rem;
             margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1rem;
         }
         h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         .section-title {
-            border-bottom: 2px solid #a7d2cb; /* Linha suave abaixo dos títulos */
+            border-bottom: 1px solid #a7d2cb; /* Linha fina abaixo dos títulos */
             padding-bottom: 0.5rem;
             margin-bottom: 1rem;
         }
@@ -48,99 +60,97 @@
             color: #4a5568; /* Cinza médio para subtítulos */
             margin-top: 1rem;
         }
-        .rounded-lg {
-            border-radius: 12px; /* Bordas suavemente arredondadas */
-        }
-        .bg-blue-100 {
-            background-color: #e6f0f3; /* Azul claro suave para destaques */
-        }
-        .text-blue-600 {
-            color: #2c3e50; /* Azul mais escuro para links */
-        }
-        .hover\:underline:hover {
-            text-decoration: underline;
-        }
         .p-8 {
-            padding: 2rem; /* Mais espaçamento interno */
+            padding: 1.5rem; /* Espaçamento interno ajustado */
         }
         .mb-8, .my-8 {
-            margin-bottom: 2rem; /* Mais espaçamento entre seções */
+            margin-bottom: 1.5rem; /* Espaçamento entre seções ajustado */
         }
         .list-disc li {
             margin-bottom: 0.5rem;
         }
-        .wave {
-            position: relative;
-            height: 70px;
-            overflow: hidden;
-        }
-        .wave:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 35px;
-            background: #f8f8f8;
-            border-radius: 50%;
-            transform-origin: bottom;
-            transform: scale(2);
-        }
-        /* Animação para as ondas */
-        @keyframes animateWave {
-            0% {
-                transform: translateX(0) translateZ(0) scaleY(1);
-            }
-            50% {
-                transform: translateX(-25%) translateZ(0) scaleY(1.1);
-            }
-            100% {
-                transform: translateX(-50%) translateZ(0) scaleY(1);
-            }
-        }
-        .wave-animation:before {
-            animation: animateWave 10s linear infinite;
-        }
         .btn {
             background-color: #2c3e50;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0; /* Botão retangular */
             text-decoration: none;
             transition: background-color 0.3s ease;
+            border: none; /* Remove borda */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #4a5568;
         }
         .card {
-            border-radius: 12px;
+            border-radius: 0; /* Bordas retas para os cards */
             padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: none; /* Sem sombra para os cards */
+            border: 1px solid #eaeaea; /* Borda fina para os cards */
             margin-bottom: 1rem;
         }
         .card-header {
-            background-color: #e6f0f3;
-            padding: 0.5rem 1rem;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
+            background-color: transparent; /* Sem cor de fundo */
+            padding: 0.5rem 0; /* Ajuste no padding */
+            border-bottom: 1px solid #eaeaea; /* Linha fina abaixo do título do card */
         }
         .icon-color {
             color: #2c3e50;
         }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .space-x-4 > *:not(:last-child) {
+            margin-right: 1rem; /* Espaçamento entre botões */
+        }
+        .text-center {
+            text-align: center;
+        }
+        .flex {
+            display: flex;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .text-blue-800 {
+            color: #2c3e50; /* Azul escuro para o nome */
+        }
+        .text-blue-600 {
+            color: #3182ce; /* Azul para links */
+        }
+        .text-xl {
+            font-size: 1.1rem;
+        }
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+        .space-y-4 > * + * {
+            margin-top: 1rem; /* Espaçamento entre itens da lista */
+        }
+        .ml-5 {
+            margin-left: 1.25rem;
+        }
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <div class="wave wave-animation"></div>
-
-    <div class="container mx-auto p-8 mt-8 mb-8">
+<body class="text-gray-800">
+    <div class="container mx-auto p-8">
         <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-blue-800">Dr. Gustavo Mendes e Silva</h1>
-            <h2 class="text-xl mt-2 text-blue-600">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
+            <h1 class="text-blue-800 font-bold">Dr. Gustavo Mendes e Silva</h1>
+            <h2 class="text-blue-600 text-xl mt-2">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
             <div class="mt-4 flex justify-center space-x-4">
-                <a href="mailto:gustavo@healthhealth.care" class="btn"><i class="fas fa-envelope icon-color"></i> E-mail</a>
-                <a href="https://linkedin.com/in/mendes-e-silva" target="_blank" class="btn"><i class="fab fa-linkedin icon-color"></i> LinkedIn</a>
+                <a href="mailto:gustavo@healthhealth.care" class="btn"><i class="fas fa-envelope icon-color mr-2"></i>E-mail</a>
+                <a href="https://linkedin.com/in/mendes-e-silva" target="_blank" class="btn"><i class="fab fa-linkedin icon-color mr-2"></i>LinkedIn</a>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 text-center">
                 <p><strong>CRM:</strong> 218133/SP</p>
                 <p><strong>Telefone:</strong> 11-91539-8330</p>
                 <p><strong>Localização:</strong> Vila Olímpia, São Paulo</p>
@@ -149,7 +159,7 @@
 
         <section class="mb-8 card">
             <div class="card-header">
-                <h3 class="text-2xl font-semibold">Perfil Clínico</h3>
+                <h3 class="section-title">Perfil Clínico</h3>
             </div>
             <div class="p-4">
                 <p>
@@ -159,10 +169,10 @@
         </section>
 
         <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Experiência Clínica</h3>
+            <h3 class="section-title">Experiência Clínica</h3>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Atendimento em Saúde Mental</h4>
+                <h4 class="sub-section-title">Atendimento em Saúde Mental</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>Médico Psiquiatra</strong> - CAPS II Jaçanã Tremembé - Sociedade Brasileira Caminho de Damasco (Outubro 2024 - Atual)</p>
@@ -194,7 +204,7 @@
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Emergências e Cuidados Intensivos</h4>
+                <h4 class="sub-section-title">Emergências e Cuidados Intensivos</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>Médico Psiquiatra</strong> - UPA Jaçanã (Março 2024 - Junho 2024)</p>
@@ -209,7 +219,7 @@
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
+                <h4 class="sub-section-title">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>Médico Interlocutor de Rede</strong> - Associação Saúde da Família (2022 - 2023)</p>
@@ -233,10 +243,10 @@
         </section>
 
         <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Formação Acadêmica</h3>
+            <h3 class="section-title">Formação Acadêmica</h3>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Especialização em Psiquiatria</h4>
+                <h4 class="sub-section-title">Especialização em Psiquiatria</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>FGMED</strong> (2024) - 492 horas</p>
@@ -257,7 +267,7 @@
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Formação em Cuidados Paliativos</h4>
+                <h4 class="sub-section-title">Formação em Cuidados Paliativos</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>MJHS Institute for Innovation in Palliative Care</strong> (2024)</p>
@@ -277,7 +287,7 @@
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Formação em Medicina Endocanabinoide</h4>
+                <h4 class="sub-section-title">Formação em Medicina Endocanabinoide</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>International Association for Cannabinoid Medicines (IACM)</strong> (2024)</p>
@@ -315,7 +325,7 @@
             </div>
 
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Graduação</h4>
+                <h4 class="sub-section-title">Graduação</h4>
                 <ul class="mt-2 space-y-4">
                     <li>
                         <p><strong>Medicina - FAMEMA</strong> (2020)</p>
@@ -328,19 +338,19 @@
         </section>
 
         <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Formação Complementar Clínica</h3>
+            <h3 class="section-title">Formação Complementar Clínica</h3>
             <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Cursos de Aperfeiçoamento</h4>
+                <h4 class="sub-section-title">Cursos de Aperfeiçoamento</h4>
                 <ul class="mt-2 space-y-4">
                     <li>Medical Neuroscience - Duke University (2024)</li>
                     <li>Medicina Canabinoide - EEPHCFMUSP</li>
                     <li>Transtornos do Sono - CENBRAP</li>
                     <li>Terapia ACT - IBAC</li>
-                    <li>Dependência Química <li>Dependência Química - Artmed360 (180h)</li>
+                    <li>Dependência Química - Artmed360 (180h)</li>
                 </ul>
             </div>
-            <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Gestão e Tecnologia em Saúde</h4>
+            <div class="mb-6"><div class="mb-6">
+                <h4 class="sub-section-title">Gestão e Tecnologia em Saúde</h4>
                 <ul class="mt-2 space-y-4">
                     <li>MBA em Health Tech - FIAP (Em andamento)</li>
                     <li>MBA em Gestão, Inovação e Serviços em Saúde - PUC-RS (2024)</li>
@@ -352,49 +362,49 @@
 
         <section class="mb-8 card">
             <div class="card-header">
-                <h3 class="text-2xl font-semibold">Áreas de Expertise Clínica</h3>
+                <h3 class="section-title">Áreas de Expertise Clínica</h3>
             </div>
             <div class="p-4">
                 <div class="mb-6">
-                    <h4 class="text-xl font-medium sub-section-title">Psiquiatria e Medicina Endocanabinoide</h4>
+                    <h4 class="sub-section-title">Psiquiatria e Medicina Endocanabinoide</h4>
                     <ul class="mt-2 space-y-4">
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Sistema Endocanabinoide e Neuropsiquiatria</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Modulação Endocanabinoide em Transtornos Mentais</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Terapias canabinoides personalizadas</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Prescrição especializada de cannabis medicinal</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Manejo de condições refratárias</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Protocolos integrativos em saúde mental</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Psicofarmacologia avançada</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Emergências psiquiátricas</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Dependência química</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Psiquiatria infantojuvenil</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Sistema Endocanabinoide e Neuropsiquiatria</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Modulação Endocanabinoide em Transtornos Mentais</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Terapias canabinoides personalizadas</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Prescrição especializada de cannabis medicinal</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Manejo de condições refratárias</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Protocolos integrativos em saúde mental</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Psicofarmacologia avançada</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Emergências psiquiátricas</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Dependência química</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Psiquiatria infantojuvenil</li>
                     </ul>
                 </div>
                 <div class="mb-6">
-                    <h4 class="text-xl font-medium sub-section-title">Medicina Digital e Tecnologias Assistenciais</h4>
+                    <h4 class="sub-section-title">Medicina Digital e Tecnologias Assistenciais</h4>
                     <ul class="mt-2 space-y-4">
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Aplicação de IA no diagnóstico e acompanhamento clínico</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Telemedicina e atendimento digital</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Ferramentas digitais de apoio à decisão clínica</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Monitoramento digital de pacientes</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Análise preditiva em saúde mental</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Aplicação de IA no diagnóstico e acompanhamento clínico</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Telemedicina e atendimento digital</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Ferramentas digitais de apoio à decisão clínica</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Monitoramento digital de pacientes</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Análise preditiva em saúde mental</li>
                     </ul>
                 </div>
                 <div class="mb-6">
-                    <h4 class="text-xl font-medium sub-section-title">Cuidados Paliativos</h4>
+                    <h4 class="sub-section-title">Cuidados Paliativos</h4>
                     <ul class="mt-2 space-y-4">
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Manejo de sintomas complexos</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Comunicação de más notícias</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Suporte ao luto</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Cuidados de fim de vida</li>
-                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Abordagem familiar</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Manejo de sintomas complexos</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Comunicação de más notícias</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Suporte ao luto</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Cuidados de fim de vida</li>
+                        <li><i class="fas fa-check icon-color mr-2"></i>Abordagem familiar</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Experiência Internacional</h3>
+            <h3 class="section-title">Experiência Internacional</h3>
             <ul class="mt-2 space-y-4">
                 <li><i class="fas fa-globe icon-color mr-2"></i>Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS (2018)</li>
                 <li><i class="fas fa-globe icon-color mr-2"></i>Membro da International AIDS Society (2020-2023)</li>
@@ -402,7 +412,7 @@
         </section>
 
         <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Idiomas</h3>
+            <h3 class="section-title">Idiomas</h3>
             <ul class="mt-2 space-y-4">
                 <li><i class="fas fa-language icon-color mr-2"></i>Português: Nativo</li>
                 <li><i class="fas fa-language icon-color mr-2"></i>Inglês: Fluente (TOEFL iBT 108/120)</li>
@@ -410,6 +420,5 @@
             </ul>
         </section>
     </div>
-    <div class="wave wave-animation" style="margin-top: -70px;"></div> 
 </body>
 </html>
