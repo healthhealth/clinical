@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         /* Estilos Escandinavos */
         body {
@@ -12,9 +13,13 @@
             line-height: 1.6;
             background-color: #f8f8f8; /* Fundo branco suave */
             color: #333; /* Cinza escuro para texto */
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c7d2cb' fill-opacity='0.2' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E"); /* Textura de fundo sutil */
         }
         .container {
             max-width: 850px;
+            box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2); /* Sombra sutil para o container */
+            background-color: white;
+            border-radius: 10px;
         }
         h1, h2, h3, h4 {
             font-family: 'Roboto', sans-serif;
@@ -96,29 +101,61 @@
         .wave-animation:before {
             animation: animateWave 10s linear infinite;
         }
+        .btn {
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #4a5568;
+        }
+        .card {
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .card-header {
+            background-color: #e6f0f3;
+            padding: 0.5rem 1rem;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .icon-color {
+            color: #2c3e50;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <div class="wave wave-animation"></div>
 
-    <div class="container mx-auto p-8">
+    <div class="container mx-auto p-8 mt-8 mb-8">
         <header class="text-center mb-8">
             <h1 class="text-4xl font-bold text-blue-800">Dr. Gustavo Mendes e Silva</h1>
             <h2 class="text-xl mt-2 text-blue-600">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="mailto:gustavo@healthhealth.care" class="btn"><i class="fas fa-envelope icon-color"></i> E-mail</a>
+                <a href="https://linkedin.com/in/mendes-e-silva" target="_blank" class="btn"><i class="fab fa-linkedin icon-color"></i> LinkedIn</a>
+            </div>
             <div class="mt-4">
                 <p><strong>CRM:</strong> 218133/SP</p>
-                <p><strong>E-mail:</strong> <a href="mailto:gustavo@healthhealth.care" class="text-blue-600 hover:underline">gustavo@healthhealth.care</a></p>
                 <p><strong>Telefone:</strong> 11-91539-8330</p>
                 <p><strong>Localização:</strong> Vila Olímpia, São Paulo</p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/mendes-e-silva" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/mendes-e-silva</a></p>
             </div>
         </header>
 
-        <section class="mb-8 bg-blue-100 p-8 rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold section-title">Perfil Clínico</h3>
-            <p class="mt-2">
-                Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência consolidada no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de inteligência artificial em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências.
-            </p>
+        <section class="mb-8 card">
+            <div class="card-header">
+                <h3 class="text-2xl font-semibold">Perfil Clínico</h3>
+            </div>
+            <div class="p-4">
+                <p>
+                    Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência consolidada no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de inteligência artificial em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências.
+                </p>
+            </div>
         </section>
 
         <section class="mb-8">
@@ -299,7 +336,7 @@
                     <li>Medicina Canabinoide - EEPHCFMUSP</li>
                     <li>Transtornos do Sono - CENBRAP</li>
                     <li>Terapia ACT - IBAC</li>
-                    <li>Dependência Química - Artmed360 (180h)</li>
+                    <li>Dependência Química <li>Dependência Química - Artmed360 (180h)</li>
                 </ul>
             </div>
             <div class="mb-6">
@@ -313,62 +350,66 @@
             </div>
         </section>
 
-        <section class="mb-8">
-            <h3 class="text-2xl font-semibold section-title">Áreas de Expertise Clínica</h3>
-            <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Psiquiatria e Medicina Endocanabinoide</h4>
-                <ul class="mt-2 space-y-4">
-                    <li>Sistema Endocanabinoide e Neuropsiquiatria</li>
-                    <li>Modulação Endocanabinoide em Transtornos Mentais</li>
-                    <li>Terapias canabinoides personalizadas</li>
-                    <li>Prescrição especializada de cannabis medicinal</li>
-                    <li>Manejo de condições refratárias</li>
-                    <li>Protocolos integrativos em saúde mental</li>
-                    <li>Psicofarmacologia avançada</li>
-                    <li>Emergências psiquiátricas</li>
-                    <li>Dependência química</li>
-                    <li>Psiquiatria infantojuvenil</li>
-                </ul>
+        <section class="mb-8 card">
+            <div class="card-header">
+                <h3 class="text-2xl font-semibold">Áreas de Expertise Clínica</h3>
             </div>
-            <div class="mb-6">
-                <h4 class="text-xl font-<div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Medicina Digital e Tecnologias Assistenciais</h4>
-                <ul class="mt-2 space-y-4">
-                    <li>Aplicação de IA no diagnóstico e acompanhamento clínico</li>
-                    <li>Telemedicina e atendimento digital</li>
-                    <li>Ferramentas digitais de apoio à decisão clínica</li>
-                    <li>Monitoramento digital de pacientes</li>
-                    <li>Análise preditiva em saúde mental</li>
-                </ul>
-            </div>
-            <div class="mb-6">
-                <h4 class="text-xl font-medium sub-section-title">Cuidados Paliativos</h4>
-                <ul class="mt-2 space-y-4">
-                    <li>Manejo de sintomas complexos</li>
-                    <li>Comunicação de más notícias</li>
-                    <li>Suporte ao luto</li>
-                    <li>Cuidados de fim de vida</li>
-                    <li>Abordagem familiar</li>
-                </ul>
+            <div class="p-4">
+                <div class="mb-6">
+                    <h4 class="text-xl font-medium sub-section-title">Psiquiatria e Medicina Endocanabinoide</h4>
+                    <ul class="mt-2 space-y-4">
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Sistema Endocanabinoide e Neuropsiquiatria</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Modulação Endocanabinoide em Transtornos Mentais</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Terapias canabinoides personalizadas</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Prescrição especializada de cannabis medicinal</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Manejo de condições refratárias</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Protocolos integrativos em saúde mental</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Psicofarmacologia avançada</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Emergências psiquiátricas</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Dependência química</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Psiquiatria infantojuvenil</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-xl font-medium sub-section-title">Medicina Digital e Tecnologias Assistenciais</h4>
+                    <ul class="mt-2 space-y-4">
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Aplicação de IA no diagnóstico e acompanhamento clínico</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Telemedicina e atendimento digital</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Ferramentas digitais de apoio à decisão clínica</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Monitoramento digital de pacientes</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Análise preditiva em saúde mental</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-xl font-medium sub-section-title">Cuidados Paliativos</h4>
+                    <ul class="mt-2 space-y-4">
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Manejo de sintomas complexos</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Comunicação de más notícias</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Suporte ao luto</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Cuidados de fim de vida</li>
+                        <li><i class="fas fa-check-circle icon-color mr-2"></i>Abordagem familiar</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="mb-8">
             <h3 class="text-2xl font-semibold section-title">Experiência Internacional</h3>
             <ul class="mt-2 space-y-4">
-                <li>Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS (2018)</li>
-                <li>Membro da International AIDS Society (2020-2023)</li>
+                <li><i class="fas fa-globe icon-color mr-2"></i>Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS (2018)</li>
+                <li><i class="fas fa-globe icon-color mr-2"></i>Membro da International AIDS Society (2020-2023)</li>
             </ul>
         </section>
 
         <section class="mb-8">
             <h3 class="text-2xl font-semibold section-title">Idiomas</h3>
             <ul class="mt-2 space-y-4">
-                <li>Português: Nativo</li>
-                <li>Inglês: Fluente (TOEFL iBT 108/120)</li>
-                <li>Espanhol: Intermediário</li>
+                <li><i class="fas fa-language icon-color mr-2"></i>Português: Nativo</li>
+                <li><i class="fas fa-language icon-color mr-2"></i>Inglês: Fluente (TOEFL iBT 108/120)</li>
+                <li><i class="fas fa-language icon-color mr-2"></i>Espanhol: Intermediário</li>
             </ul>
         </section>
     </div>
-    <div class="wave wave-animation" style="margin-top: -70px;"></div> </body>
+    <div class="wave wave-animation" style="margin-top: -70px;"></div> 
+</body>
 </html>
