@@ -4,169 +4,387 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Cores */
+        /* --- Cores --- */
         :root {
-            --main-green: #00502e; /* Verde escuro do logo OrCann */
-            --light-green: #6b876f; /* Verde acinzentado do logo OrCann */
-            --background-gray: #f8f8f8; /* Cinza claro para o fundo */
-            --text-gray: #333; /* Cinza escuro para texto principal */
-            --title-gray: #1a1a1a; /* Cinza bem escuro para títulos */
+            --primary-color: #004d66; /* Azul escuro, sóbrio */
+            --secondary-color: #007799; /* Azul um pouco mais claro, para detalhes */
+            --background-color: #f8f8f8; /* Cinza claro para o fundo */
+            --text-color: #222; /* Cinza bem escuro para texto principal */
+            --title-color: #004d66; /* Azul escuro para títulos */
+            --light-gray: #d3d3d3; /* Cinza claro para linhas e fundos sutis */
+            --white: #fff; 
         }
 
-        /* Estilos */
+        /* --- Estilos Gerais --- */
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-weight: 300;
-            line-height: 1.6;
-            color: var(--text-gray);
-            background-color: var(--background-gray);
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            font-size: 10pt;
         }
-        @media print {
-            body {
-                background-color: #fff; /* Fundo branco na impressão */
-                color: #000; /* Texto preto para impressão */
-            }
-            .container {
-                box-shadow: none; /* Remove sombras na impressão */
-            }
-        }
+
         .container {
             max-width: 800px;
-            background-color: white;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 2rem;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--main-green);
+
+        /* --- Cabeçalho --- */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 2.8em;
             font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        h4 {
+
+        .header h2 {
             font-family: 'Roboto', sans-serif;
-            color: var(--light-green);
-            font-size: 1.1rem;
-            margin-top: 1rem;
+            font-size: 1.2em;
             font-weight: 400;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
         }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+
+        .contact-info i {
+            color: var(--secondary-color);
+        }
+
+        /* --- Seções --- */
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid; /* Evita quebras de página dentro da seção */
+        }
+
         .section-title {
-            border-bottom: 1px solid var(--light-green);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .btn {
-            background-color: var(--main-green);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 0; /* Botão retangular */
-            text-decoration: none;
             font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
+            font-size: 1.4em;
+            font-weight: 500;
+            color: var(--title-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .section-title-sidebar{
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--title-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* --- Experiência, Formação, etc. --- */
+        .experience-item,
+        .education-item,
+        .international-experience-item {
+            margin-bottom: 25px;
+            page-break-inside: avoid; /* Evita quebras de página dentro do item */
+        }
+
+        .experience-title,
+        .education-institution,
+        .international-experience-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .experience-period,
+        .education-period,
+        .international-experience-period {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .experience-details,
+        .education-details,
+        .international-experience-details {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .experience-details li,
+        .education-details li,
+        .international-experience-details li {
+            margin-bottom: 8px;
+        }
+
+        .education-level {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Barra Lateral --- */
+        .sidebar {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .sidebar-content {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .sidebar-content ul li {
+            margin-bottom: 8px;
+        }
+
+        /* --- Habilidades --- */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 400;
+            white-space: nowrap; /* Evita quebra de linha */
+        }
+
+        /* --- Idiomas --- */
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language {
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            width: calc(33% - 10px);
+            border: 1px solid var(--light-gray);
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .language-level {
+            font-size: 0.9em;
+        }
+
+        /* --- Botões --- */
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
             cursor: pointer;
             border: none;
             transition: background-color 0.3s ease;
+            margin-right: 10px;
         }
+
         .btn:hover {
-            background-color: #00381f;
+            background-color: #00334d;
         }
-        .mt-4 {
-            margin-top: 1rem;
-        }
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-        .mb-6 {
-            margin-bottom: 1.5rem;
-        }
-        .space-x-4 > *:not(:last-child) {
-            margin-right: 1rem; /* Espaçamento entre botões */
-        }
-        .text-center {
-            text-align: center;
-        }
-        .flex {
-            display: flex;
-        }
-        .justify-center {
-            justify-content: center;
-        }
-        .font-bold {
-            font-weight: 700;
-        }
-        .text-main-green {
-            color: var(--main-green);
-        }
-        .text-gray-600 {
-            color: var(--light-green);
-        }
-        .text-xl {
-            font-size: 1.1rem;
-        }
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-        .space-y-4 > * + * {
-            margin-top: 1rem; /* Espaçamento entre itens da lista */
-        }
-        .list-disc li {
-            margin-bottom: 0.5rem;
-            margin-left: 2rem;
-        }
-        .border-b {
-            border-bottom-width: 1px;
-            border-color: var(--light-green);
-        }
-        .pb-2 {
-            padding-bottom: 0.5rem;
+
+        /* --- Impressão (PDF) --- */
+        @media print {
+            *,
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: var(--white);
+                color: #000;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .header {
+                margin-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+                margin-bottom: 5px;
+            }
+
+            .header h2 {
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+
+            .contact-info {
+                gap: 10px;
+                font-size: 0.8em;
+            }
+
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+                padding-bottom: 5px;
+                margin-bottom: 15px;
+            }
+
+            .sidebar {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .section-title-sidebar{
+                font-size: 1em;
+                padding-bottom: 5px;
+                margin-bottom: 15px;
+            }
+
+            .experience-item,
+            .education-item,
+            .international-experience-item {
+                margin-bottom: 15px;
+            }
+
+            .experience-title,
+            .education-institution,
+            .international-experience-title {
+                font-size: 1em;
+            }
+
+            .experience-details,
+            .education-details,
+            .international-experience-details {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            .education-level {
+                margin-top: 15px;
+                margin-bottom: 10px;
+                font-size: 1em;
+            }
+
+            .skills {
+                gap: 8px;
+            }
+
+            .skill {
+                padding: 6px 12px;
+                font-size: 0.8em;
+                page-break-inside: avoid;
+            }
+
+            .languages {
+                gap: 8px;
+            }
+
+            .language {
+                padding: 10px;
+                width: calc(33% - 6px);
+            }
+
+            .language-name {
+                font-size: 0.9em;
+            }
+
+            .language-level {
+                font-size: 0.8em;
+            }
+
+            .btn {
+                display: none; /* Esconde os botões na impressão */
+            }
+
+            .fa-solid,
+            .fa-brands {
+                display: none; /* Esconde os ícones na versão para impressão */
+            }
         }
     </style>
 </head>
+
 <body class="text-gray-800">
     <div class="container mx-auto">
-        <header class="text-center mb-8">
+        <header class="header">
             <h1 class="font-bold text-main-green">Dr. Gustavo Mendes e Silva</h1>
             <h2 class="text-gray-600 text-xl mt-2">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
-            <div class="mt-4 flex justify-center space-x-4">
+            <div class="mt-4 flex justify-center">
                 <a href="mailto:dr@orcann.com" class="btn">E-mail</a>
                 <a href="https://dr.orcann.com" target="_blank" class="btn">Site</a>
                 <a href="https://linkedin.com/in/drgustavomendes" target="_blank" class="btn">LinkedIn</a>
             </div>
-            <div class="mt-4 text-center">
-                <p class="mb-2"><strong>CRM:</strong> 218133/SP</p>
-                <p class="mb-2"><strong>Telefone:</strong> 11-91539-8330</p>
-                <p><strong>Localização:</strong> Vila Olímpia, São Paulo</p>
+            <div class="mt-4 contact-info">
+                <div><strong>CRM:</strong> 218133/SP</div>
+                <div><strong>Telefone:</strong> 11-91539-8330</div>
+                <div><strong>Localização:</strong> Vila Olímpia, São Paulo</div>
             </div>
         </header>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Perfil Clínico</h3>
             <p>
                 Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência consolidada no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de inteligência artificial em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências.
             </p>
         </section>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Experiência Clínica</h3>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Atendimento em Saúde Mental</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Atendimento em Saúde Mental</h4>
+                <ul class="experience-details">
                     <li>
                         <p><strong>Médico Psiquiatra</strong> - CAPS II Jaçanã Tremembé - Sociedade Brasileira Caminho de Damasco (Outubro 2024 - Atual)</p>
                         <ul class="list-disc">
@@ -196,9 +414,9 @@
                 </ul>
             </div>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Emergências e Cuidados Intensivos</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Emergências e Cuidados Intensivos</h4>
+                <ul class="experience-details">
                     <li>
                         <p><strong>Médico Psiquiatra</strong> - UPA Jaçanã (Março 2024 - Junho 2024)</p>
                         <ul class="list-disc">
@@ -211,9 +429,9 @@
                 </ul>
             </div>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
+                <ul class="experience-details">
                     <li>
                         <p><strong>Médico Interlocutor de Rede</strong> - Associação Saúde da Família (2022 - 2023)</p>
                         <ul class="list-disc">
@@ -235,15 +453,15 @@
             </div>
         </section>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Formação Acadêmica</h3>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Especialização em Psiquiatria</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Especialização em Psiquiatria</h4>
+                <ul class="education-details">
                     <li>
                         <p><strong>FGMED</strong> (2024) - 492 horas</p>
-                        <ul class="list-disc">
+                        <ul class="list-disc<ul class="list-disc">
                             <li>Diagnóstico e tratamento avançado de transtornos mentais</li>
                             <li>Psicofarmacologia avançada</li>
                             <li>Psicopatologia</li>
@@ -259,9 +477,9 @@
                 </ul>
             </div>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Formação em Cuidados Paliativos</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Formação em Cuidados Paliativos</h4>
+                <ul class="education-details">
                     <li>
                         <p><strong>MJHS Institute for Innovation in Palliative Care</strong> (2024)</p>
                         <ul class="list-disc">
@@ -279,9 +497,9 @@
                 </ul>
             </div>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Formação em Medicina Endocanabinoide</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Formação em Medicina Endocanabinoide</h4>
+                <ul class="education-details">
                     <li>
                         <p><strong>International Association for Cannabinoid Medicines (IACM)</strong> (2024)</p>
                         <ul class="list-disc">
@@ -317,9 +535,9 @@
                 </ul>
             </div>
 
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Graduação</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Graduação</h4>
+                <ul class="education-details">
                     <li>
                         <p><strong>Medicina - FAMEMA</strong> (2020)</p>
                         <ul class="list-disc">
@@ -330,11 +548,11 @@
             </div>
         </section>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Formação Complementar Clínica</h3>
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Cursos de Aperfeiçoamento</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Cursos de Aperfeiçoamento</h4>
+                <ul class="education-details">
                     <li>Medical Neuroscience - Duke University (2024)</li>
                     <li>Medicina Canabinoide - EEPHCFMUSP</li>
                     <li>Transtornos do Sono - CENBRAP</li>
@@ -342,9 +560,9 @@
                     <li>Dependência Química - Artmed360 (180h)</li>
                 </ul>
             </div>
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Gestão e Tecnologia em Saúde</h4>
-                <ul class="space-y-4">
+            <div class="education-item">
+                <h4 class="education-level">Gestão e Tecnologia em Saúde</h4>
+                <ul class="education-details">
                     <li>MBA em Health Tech - FIAP (Em andamento)</li>
                     <li>MBA em Gestão, Inovação e Serviços em Saúde - PUC-RS (2024)</li>
                     <li>Especialização em Tecnologia e Dados em Saúde - PUC-PR (2024)</li>
@@ -353,11 +571,11 @@
             </div>
         </section>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Áreas de Expertise Clínica</h3>
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Psiquiatria e Medicina Endocanabinoide</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Psiquiatria e Medicina Endocanabinoide</h4>
+                <ul class="experience-details">
                     <li>Sistema Endocanabinoide e Neuropsiquiatria</li>
                     <li>Modulação Endocanabinoide em Transtornos Mentais</li>
                     <li>Terapias canabinoides personalizadas</li>
@@ -370,9 +588,9 @@
                     <li>Psiquiatria infantojuvenil</li>
                 </ul>
             </div>
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Medicina Digital e Tecnologias Assistenciais</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Medicina Digital e Tecnologias Assistenciais</h4>
+                <ul class="experience-details">
                     <li>Aplicação de IA no diagnóstico e acompanhamento clínico</li>
                     <li>Telemedicina e atendimento digital</li>
                     <li>Ferramentas digitais de apoio à decisão clínica</li>
@@ -380,9 +598,9 @@
                     <li>Análise preditiva em saúde mental</li>
                 </ul>
             </div>
-            <div class="mb-6">
-                <h4 class="border-b pb-2 mb-4">Cuidados Paliativos</h4>
-                <ul class="space-y-4">
+            <div class="experience-item">
+                <h4 class="experience-title">Cuidados Paliativos</h4>
+                <ul class="experience-details">
                     <li>Manejo de sintomas complexos</li>
                     <li>Comunicação de más notícias</li>
                     <li>Suporte ao luto</li>
@@ -391,22 +609,60 @@
                 </ul>
             </div>
         </section>
-
-        <section class="mb-8">
+        <section class="section">
+            <div class="sidebar">
+                <h2 class="section-title-sidebar"><i class="fa-solid fa-certificate"></i> Certificações</h2>
+                <div class="sidebar-content">
+                    <ul class="sidebar-list">
+                        <li>AI in Healthcare - Stanford University (2024)</li>
+                        <li>Medical Neuroscience - Duke University (2024)</li>
+                        <li>Gestão de Processos em Saúde - EEPHCFMUSP</li>
+                        <li>Certificação Internacional em Medicina Endocanabinoide - IACM</li>
+                        <li>Clinical Cannabinoid Medicine Specialist - SCC</li>
+                    </ul>
+                </div>
+            
+                <h2 class="section-title-sidebar"><i class="fa-solid fa-check-circle"></i> Competências Técnicas</h2>
+                <div class="skills">
+                    <div class="skill">Análise Técnica</div>
+                    <div class="skill">Pareceres Médicos</div>
+                    <div class="skill">Auditoria</div>
+                    <div class="skill">Protocolos Assistenciais</div>
+                    <div class="skill">Gestão em Saúde</div>
+                    <div class="skill">Rol ANS</div>
+                    <div class="skill">Relacionamento Médico</div>
+                    <div class="skill">Comunicação Científica</div>
+                    <div class="skill">Inglês Fluente</div>
+                    <div class="skill">Análise de Evidências</div>
+                    <div class="skill">Boas Práticas Clínicas</div>
+                    <div class="skill">Diretrizes ANVISA</div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
             <h3 class="section-title">Experiência Internacional</h3>
-            <ul class="space-y-4">
+            <ul class="experience-details">
                 <li>Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS (2018)</li>
                 <li>Membro da International AIDS Society (2020-2023)</li>
             </ul>
         </section>
 
-        <section class="mb-8">
+        <section class="section">
             <h3 class="section-title">Idiomas</h3>
-            <ul class="space-y-4">
-                <li>Português: Nativo</li>
-                <li>Inglês: Fluente (TOEFL iBT 108/120)</li>
-                <li>Espanhol: Intermediário</li>
-            </ul>
+            <div class="languages">
+                <div class="language">
+                    <h4 class="language-name">Português</h4>
+                    <p class="language-level">Nativo</p>
+                </div>
+                <div class="language">
+                    <h4 class="language-name">Inglês</h4>
+                    <p class="language-level">Fluente (TOEFL iBT 108/120)</p>
+                </div>
+                <div class="language">
+                    <h4 class="language-name">Espanhol</h4>
+                    <p class="language-level">Intermediário</p>
+                </div>
+            </div>
         </section>
     </div>
 </body>
