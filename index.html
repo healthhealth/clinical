@@ -38,16 +38,36 @@
 
         /* --- Cabeçalho --- */
         .header {
+            display: flex; /* Usar flexbox para alinhar a foto e os textos */
+            align-items: center; /* Alinhar verticalmente ao centro */
+            margin-bottom: 30px;
+            
+        }
+        .header-content{
             text-align: center;
             margin-bottom: 30px;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 30px;
+
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            
         }
 
         .header h1 {
             font-family: 'EB Garamond', serif;
-            font-size: 2.8em;
+            font-size: 2.4em;
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 10px;
+            
         }
 
         .header h2 {
@@ -254,16 +274,27 @@
 
             .header {
                 margin-bottom: 20px;
+                display: flex;
+                align-items: center;
             }
 
             .header h1 {
-                font-size: 2.2em;
+                font-size: 1.8em;
                 margin-bottom: 5px;
+                
             }
 
             .header h2 {
                 font-size: 1em;
                 margin-bottom: 10px;
+            }
+
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid var(--secondary-color);
             }
 
             .contact-info {
@@ -357,20 +388,19 @@
 
 <body class="text-gray-800">
     <div class="container mx-auto">
-        <header class="header">
-            <h1 class="font-bold text-main-green">Dr. Gustavo Mendes e Silva</h1>
-            <h2 class="text-gray-600 text-xl mt-2">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
-            <div class="mt-4 flex justify-center">
-                <a href="mailto:dr@orcann.com" class="btn">E-mail</a>
-                <a href="https://dr.orcann.com" target="_blank" class="btn">Site</a>
-                <a href="https://linkedin.com/in/drgustavomendes" target="_blank" class="btn">LinkedIn</a>
-            </div>
-            <div class="mt-4 contact-info">
-                <div><strong>CRM:</strong> 218133/SP</div>
-                <div><strong>Telefone:</strong> 11-91539-8330</div>
-                <div><strong>Localização:</strong> Vila Olímpia, São Paulo</div>
-            </div>
-        </header>
+    <div class="header">
+    <img src="foto_perfil.jpg" alt="Foto de Perfil" class="profile-pic">
+    <div class="header-content">
+        <h1 class="font-bold text-main-green">Dr. Gustavo Mendes e Silva</h1>
+        <h2 class="text-gray-600 text-xl mt-2">Médico Psiquiatra | Especialista em Saúde Mental e Cuidados Paliativos</h2>
+        <div class="mt-4 contact-info">
+            <div><strong>CRM:</strong> 218133/SP</div>
+            <div><strong>Telefone:</strong> 11-91539-8330</div>
+            <div><strong>Localização:</strong> Vila Olímpia, São Paulo</div>
+        </div>
+    </div>
+</div>
+
 
         <section class="section">
             <h3 class="section-title">Perfil Clínico</h3>
@@ -444,6 +474,7 @@
                     <li>
                         <p><strong>Médico Diarista</strong> - Hospital Psiquiátrico Cantareira - SPDM (2021 - 2022)</p>
                         <ul class="list-disc">
+                            <li>Atendimento em enfermaria ps<ul class="list-disc">
                             <li>Atendimento em enfermaria psiquiátrica</li>
                             <li>Manejo de casos agudos e crônicos</li>
                             <li>Desenvolvimento de protocolos assistenciais</li>
@@ -461,7 +492,7 @@
                 <ul class="education-details">
                     <li>
                         <p><strong>FGMED</strong> (2024) - 492 horas</p>
-                        <ul class="list-disc<ul class="list-disc">
+                        <ul class="list-disc">
                             <li>Diagnóstico e tratamento avançado de transtornos mentais</li>
                             <li>Psicofarmacologia avançada</li>
                             <li>Psicopatologia</li>
