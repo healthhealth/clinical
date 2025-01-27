@@ -1,705 +1,551 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* --- Cores --- */
-        :root {
-            --primary-color: #222; /* Cinza bem escuro, quase preto */
-            --secondary-color: #444; /* Cinza escuro, para detalhes */
-            --background-color: #f8f8f8; /* Cinza claro para o fundo */
-            --text-color: #222; /* Cinza bem escuro para texto principal */
-            --title-color: #222; /* Cinza bem escuro para títulos */
-            --light-gray: #d3d3d3; /* Cinza claro para linhas e fundos sutis */
-            --white: #fff;
-            --title-font: 'Montserrat', serif; /* Títulos e subtítulos */
-            --subtitle-font: 'Mulish', sans-serif;
-            --section-title-font: 'Josefin Sans', sans-serif; /* Títulos de seção */
-            --body-font: 'Open Sans', sans-serif; /* Corpo do texto */
-        }
-
-        /* --- Estilos Gerais --- */
-        body {
-            font-family: var(--body-font);
-            font-weight: 400;
-            line-height: 1.5;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            font-size: 10pt;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: var(--white);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        /* --- Cabeçalho --- */
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--light-gray);
-            padding-bottom: 20px;
-        }
-
-        .profile-pic {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary-color);
-        }
-
-        .header-content {
-            text-align: left;
-            margin-left: 30px;
-        }
-
-        .header h1 {
-            font-family: var(--title-font);
-            font-size: 2.2em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .header h2 {
-            font-family: var(--subtitle-font);
-            font-size: 1.1em;
-            font-weight: 400;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .contact-info div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-
-        .contact-info i {
-            color: var(--secondary-color);
-            font-size: 1em;
-        }
-
-        /* --- Seções --- */
-        .section {
-            margin-bottom: 30px;
-            page-break-inside: avoid;
-        }
-
-        .section-title {
-            font-family: var(--section-title-font);
-            font-size: 1.3em;
-            font-weight: 600;
-            color: var(--title-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .section-title-sidebar {
-            font-family: var(--section-title-font);
-            font-size: 1.1em;
-            font-weight: 500;
-            color: var(--title-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        /* --- Perfil Profissional --- */
-        .profile-text {
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-
-        /* --- Experiência, Formação, etc. --- */
-        .experience-item,
-        .education-item,
-        .international-experience-item {
-            margin-bottom: 25px;
-            page-break-inside: avoid;
-        }
-
-        .experience-title,
-        .education-institution,
-        .international-experience-title {
-            font-family: var(--title-font);
-            font-size: 1em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .experience-period,
-        .education-period,
-        .international-experience-period {
-            font-family: var(--subtitle-font);
-            font-size: 0.8em;
-            font-weight: 500;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .experience-details,
-        .education-details,
-        .international-experience-details {
-            list-style-type: disc;
-            margin-left: 20px;
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .experience-details li,
-        .education-details li,
-        .international-experience-details li {
-            margin-bottom: 10px;
-        }
-
-        .education-level {
-            font-family: var(--title-font);
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        /* --- Barra Lateral --- */
-        .sidebar {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            border: 1px solid var(--light-gray);
-        }
-
-        .sidebar-content {
-            margin-bottom: 20px;
-        }
-
-        .sidebar-content ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .sidebar-content ul li {
-            margin-bottom: 8px;
-        }
-
-        /* --- Habilidades --- */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-family: var(--subtitle-font);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        /* --- Idiomas --- */
-        .languages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .language {
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            width: calc(33% - 10px);
-            border: 1px solid var(--light-gray);
-        }
-
-        .language-name {
-            font-family: var(--title-font);
-            font-size: 0.9em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .language-level {
-            font-size: 0.8em;
-        }
-
-        /* --- Impressão (PDF) --- */
-        @media print {
-            *,
-            body {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                background-color: var(--white);
-                color: #000;
-            }
-
-            .container {
-                box-shadow: none;
-                border: none;
-                margin: 0;
-                padding: 0;
-                max-width: 100%;
-            }
-
-            .header {
-                margin-bottom: 20px;
-                align-items: flex-start;
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .header h1 {
-                font-size: 1.6em;
-                margin-bottom: 5px;
-            }
-
-            .header h2 {
-                font-size: 0.9em;
-                margin-bottom: 10px;
-            }
-
-            .profile-pic {
-                width: 50px;
-                height: 50px;
-                border: 2px solid var(--secondary-color);
-            }
-
-            .header-content {
-                margin-left: 20px;
-            }
-
-            .contact-info {
-                gap: 10px;
-                font-size: 0.7em;
-                flex-direction: column;
-                flex-wrap: nowrap;
-            }
-
-            .contact-info i {
-                font-size: 0.9em;
-            }
-
-            .section {
-                margin-bottom: 20px;
-            }
-
-            .section-title {
-                font-size: 1em;
-                padding-bottom: 5px;
-                margin-bottom: 15px;
-            }
-
-            .section-title-sidebar {
-                font-size: 0.9em;
-                padding-bottom: 5px;
-                margin-bottom: 15px;
-            }
-
-            .sidebar {
-                padding: 10px;
-                margin-bottom: 20px;
-            }
-
-            .experience-item,
-            .education-item,
-            .international-experience-item {
-                margin-bottom: 15px;
-            }
-
-            .experience-title,
-            .education-institution,
-            .international-experience-title {
-                font-size: 0.8em;
-            }
-
-            .experience-details,
-            .education-details,
-            .international-experience-details {
-                font-size: 0.7em;
-                margin-bottom: 10px;
-            }
-
-            .education-level {
-                margin-top: 15px;
-                margin-bottom: 10px;
-                font-size: 0.8em;
-            }
-
-            .skills {
-                gap: 8px;
-            }
-
-            .skill {
-                padding: 6px 12px;
-                font-size: 0.6em;
-                page-break-inside: avoid;
-            }
-
-            .languages {
-                gap: 8px;
-            }
-
-            .language {
-                padding: 10px;
-                width: calc(33% - 6px);
-            }
-
-            .language-name {
-                font-size: 0.7em;
-            }
-
-            .language-level {
-                font-size: 0.6em;
-            }
-
-            .fa-solid,
-            .fa-brands {
-                display: none;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Gustavo Mendes e Silva - Psiquiatra</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;700&family=Mulish:wght@400&family=Josefin+Sans:wght@600&display=swap">
+<style>
+:root {
+  --primary-color: #222;
+  --secondary-color: #444;
+  --background-color: #f8f8f8;
+  --text-color: #222;
+  --title-color: #222;
+  --light-gray: #d3d3d3;
+  --white: #fff;
+  --title-font: 'Montserrat', serif;
+  --subtitle-font: 'Mulish', sans-serif;
+  --section-title-font: 'Josefin Sans', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+body {
+  font: 400 10pt/1.5 var(--body-font);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: 20px;
+}
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--secondary-color);
+}
+.header-content {
+  text-align: left;
+  margin-left: 30px;
+}
+.header h1 {
+  font: 700 2.2em var(--title-font);
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+.header h2 {
+  font: 400 1.1em var(--subtitle-font);
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.contact-info div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+.contact-info span {
+  color: var(--secondary-color);
+  font-size: 1em;
+}
+.section {
+  margin-bottom: 30px;
+  page-break-inside: avoid;
+}
+.section-title, .section-title-sidebar {
+  font: 600 1.3em var(--section-title-font);
+  color: var(--title-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.section-title-sidebar {
+  font-size: 1.1em;
+}
+.profile-text {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+.experience-item, .education-item, .international-experience-item {
+  margin-bottom: 25px;
+  page-break-inside: avoid;
+}
+.experience-title, .education-institution, .international-experience-title, .education-level, .language-name {
+  font: 700 1em var(--title-font);
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+.experience-period, .education-period, .international-experience-period {
+  font: 500 0.8em var(--subtitle-font);
+  color: #666;
+  margin-bottom: 10px;
+}
+.experience-details, .education-details, .international-experience-details, .sidebar-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+.experience-details li, .education-details li, .international-experience-details li, .sidebar-content ul li {
+  margin-bottom: 10px;
+}
+.education-level {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+.sidebar {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  border: 1px solid var(--light-gray);
+}
+.sidebar-content {
+  margin-bottom: 20px;
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font: 500 0.8em var(--subtitle-font);
+  white-space: nowrap;
+}
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.language {
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: calc(33% - 10px);
+  border: 1px solid var(--light-gray);
+}
+.language-level {
+  font-size: 0.8em;
+}
+@media print {
+  *, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: var(--white);
+    color: #000;
+  }
+  .container {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+  .header {
+    margin-bottom: 20px;
+    align-items: flex-start;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .header h1 {
+    font-size: 1.6em;
+    margin-bottom: 5px;
+  }
+  .header h2 {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--secondary-color);
+  }
+  .header-content {
+    margin-left: 20px;
+  }
+  .contact-info {
+    gap: 10px;
+    font-size: 0.7em;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .contact-info span {
+    font-size: 0.9em;
+  }
+  .section {
+    margin-bottom: 20px;
+  }
+  .section-title, .section-title-sidebar {
+    font-size: 1em;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  .section-title-sidebar {
+    font-size: 0.9em;
+  }
+  .sidebar {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .experience-item, .education-item, .international-experience-item {
+    margin-bottom: 15px;
+  }
+  .experience-title, .education-institution, .international-experience-title, .education-level, .language-name {
+    font-size: 0.8em;
+  }
+  .experience-details, .education-details, .international-experience-details {
+    font-size: 0.7em;
+    margin-bottom: 10px;
+  }
+  .education-level {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  .skills {
+    gap: 8px;
+  }
+  .skill {
+    padding: 6px 12px;
+    font-size: 0.6em;
+    page-break-inside: avoid;
+  }
+  .languages {
+    gap: 8px;
+  }
+  .language {
+    padding: 10px;
+    width: calc(33% - 6px);
+  }
+  .language-name {
+    font-size: 0.7em;
+  }
+  .language-level {
+    font-size: 0.6em;
+  }
+}
+</style>
 </head>
-
-<body class="text-gray-800">
-    <div class="container mx-auto">
-        <div class="header">
-            <img src="foto_perfil.jpg" alt="Foto de Perfil" class="profile-pic">
-            <div class="header-content">
-                <h1 class="font-bold text-main-green">Dr. Gustavo Mendes e Silva</h1>
-                <h2 class="text-gray-600 text-xl mt-2">Médico | Psiquiatria - Cannabis Medicinal - Cuidados Paliativos</h2>
-                <div class="mt-4 contact-info">
-                    <div><i class="fas fa-id-card"></i> CRM: 218133/SP</div>
-                    <div><i class="fas fa-phone"></i> 11-96546-1146</div>
-                    <div><i class="fas fa-map-marker-alt"></i> Vila Olímpia, São Paulo</div>
-                </div>
-            </div>
-        </div>
-
-        <section class="section">
-            <h3 class="section-title">Perfil Clínico</h3>
-            <p class="profile-text">
-                Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência consolidada no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de inteligência artificial em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências. Membro da Society of Cannabis Clinicians (SCC).
-            </p>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Experiência Clínica</h3>
-
-            <div class="experience-item">
-                <h4 class="experience-title">Atendimento em Saúde Mental</h4>
-                <ul class="experience-details">
-                    <li>
-                        <p><strong class="experience-period">Outubro 2024 - Atual</strong><strong class="experience-title"> Médico Psiquiatra</strong> - CAPS II Jaçanã Tremembé - Sociedade Brasileira Caminho de Damasco</p>
-                        <ul class="list-disc">
-                            <li>Atendimento especializado em transtornos mentais severos e persistentes.</li>
-                            <li>Manejo de casos psiquiátricos complexos e situações de crise.</li>
-                            <li>Coordenação de planos terapêuticos com equipe multidisciplinar.</li>
-                            <li>Supervisão e suporte a casos complexos.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="experience-period">Maio 2024</strong><strong class="experience-title"> Médico Psiquiatra</strong> - CAPS IJ Diadema</p>
-                        <ul class="list-disc">
-                            <li>Atendimento psiquiátrico infantojuvenil especializado<li>Intervenções familiares sistemáticas.</li>
-                            <li>Manejo de crises em adolescentes.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="experience-period">Abril 2024 - Maio 2024</strong> <strong class="experience-title">Médico Psiquiatra</strong> - CAPS AD Diadema</p>
-                        <ul class="list-disc">
-                            <li>Tratamento especializado em dependência química.</li>
-                            <li>Reabilitação psicossocial.</li>
-                            <li>Prevenção de recaídas.</li>
-                            <li>Grupos terapêuticos.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h4 class="experience-title">Emergências e Cuidados Intensivos</h4>
-                <ul class="experience-details">
-                    <li>
-                        <p><strong class="experience-period">Março 2024 - Junho 2024</strong> <strong class="experience-title">Médico Psiquiatra</strong> - UPA Jaçanã</p>
-                        <ul class="list-disc">
-                            <li>Atendimento de emergências psiquiátricas 24h.</li>
-                            <li>Manejo de crises e emergências.</li>
-                            <li>Avaliação e estabilização de pacientes agudos.</li>
-                            <li>Intervenção em tentativas de suicídio.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <h4 class="experience-title">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
-                <ul class="experience-details">
-                    <li>
-                        <p><strong class="experience-period">2022 - 2023</strong> <strong class="experience-title">Médico Interlocutor de Rede</strong> - Associação Saúde da Família</p>
-                        <ul class="list-disc">
-                            <li>Implementação de protocolos de cuidados integrados.</li>
-                            <li>Coordenação de equipes multiprofissionais.</li>
-                            <li>Desenvolvimento de programas de suporte familiar.</li>
-                            <li>Gestão de casos complexos.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="experience-period">2021 - 2022</strong> <strong class="experience-title">Médico Diarista</strong> - Hospital Psiquiátrico Cantareira - SPDM</p>
-                        <ul class="list-disc">
-                            <li>Atendimento diário em enfermaria.</li>
-                            <li>Manejo de casos agudos e crônicos.</li>
-                            <li>Desenvolvimento de protocolos assistenciais.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Formação Acadêmica</h3>
-
-            <div class="education-item">
-                <h4 class="education-level">Especialização em Psiquiatria</h4>
-                <ul class="education-details">
-                    <li>
-                        <p><strong class="education-period">2024</strong> <strong class="education-institution">FGMED</strong> - 492 horas</p>
-                        <ul class="list-disc">
-                            <li>Diagnóstico e tratamento avançado de transtornos mentais.</li>
-                            <li>Psicofarmacologia avançada.</li>
-                            <li>Psicopatologia.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="education-period">2024</strong> <strong class="education-institution">Sanar/Cetrus</strong> - 432 horas</p>
-                        <ul class="list-disc">
-                            <li>Semiologia psiquiátrica.</li>
-                            <li>Raciocínio clínico em saúde mental.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="education-item">
-                <h4 class="education-level">Formação em Cuidados Paliativos</h4>
-                <ul class="education-details">
-                    <li>
-                        <p><strong class="education-period">2024-2025</strong> <strong class="education-institution">MJHS Institute for Innovation in Palliative Care</strong></p>
-                        <ul class="list-disc">
-                            <li>Programa avançado de formação em cuidados paliativos.</li>
-                            <li>Inovação em cuidados de fim de vida.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="education-period">2024</strong> <strong class="education-institution">Palliative Care Program - University of Colorado </strong></p>
-                        <ul class="list-disc">
-                            <li>Abordagem moderna dos cuidados paliativos em módulos.</li>
-                            <li>Supporting patientes living with serious illness; providing psychosocial and spiritual support; pain management for your patients; easing non-pain physical symptons.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="education-item">
-                <h4 class="education-level">Formação em Medicina Endocanabinoide</h4>
-                <ul class="education-details">
-                    <li>
-                        <p><strong class="education-period">2024</strong> <strong class="education-institution">Clinical Cannabinoid Medicine Specialist - Society of Cannabis Clinicians</strong></p>
-                        <ul class="list-disc">
-                            <li>Certificação internacional em medicina canabinoide.</li>
-                            <li>Manejo avançado de terapias com canabinoides.</li>
-                            <li>Aplicações em saúde mental e cuidados paliativos.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p><strong class="education-period">2024</strong> <strong class="education-institution">The Medical Cannabis Institute - TMCI Global</strong></p>
-                        <ul class="list-disc">
-                            <li>Clinical Applications of Medical Cannabis.</li>
-                            <li>Endocannabinoid System in Clinical Practice.</li>
-                            <li>Psychiatric Applications of Cannabinoids.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="education-item">
-                <h4 class="education-level">Graduação</h4>
-                <ul class="education-details">
-                    <li>
-                        <p><strong class="education-period">2020</strong> <strong class="education-institution">Medicina - FAMEMA</strong></p>
-                        <ul class="list-disc">
-                            <li>Faculdade Estadual de Medicina de Marília, SP.</li>
-                            <li>Nota 5 ENADE.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Formação Complementar Clínica</h3>
-            <div class="education-item">
-                <h4 class="education-level">Cursos de Aperfeiçoamento</h4>
-                <ul class="education-details">
-                    <li><strong class="education-period">2024</strong> Medical Neuroscience - Duke University.</li>
-                    <li>Medicina Canabinoide - EEPHCFMUSP.</li>
-                    <li>Transtornos do Sono - CENBRAP.</li>
-                    <li>Terapia ACT - IBAC.</li>
-                    <li>Dependência Química - Artmed360 (180h).</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <h4 class="education-level">Gestão e Tecnologia em Saúde</h4>
-                <ul class="education-details">
-                    <li>(Em andamento) MBA em Health Tech - FIAP.</li>
-                    <li><strong class="education-period">2024</strong> MBA em Gestão, Inovação e Serviços em Saúde - PUC-RS.</li>
-                    <li><strong class="education-period">2024</strong> Especialização em Tecnologia e Dados em Saúde - PUC-PR.</li>
-                    <li><strong class="education-period">2024</strong> AI in Healthcare - Stanford University.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Áreas de Expertise Clínica</h3>
-            <div class="experience-item">
-                <h4 class="experience-title">Psiquiatria e Medicina Endocanabinoide</h4>
-                <ul class="experience-details">
-                    <li>Sistema Endocanabinoide e Neuropsiquiatria.</li>
-                    <li>Modulação Endocanabinoide em Transtornos Mentais.</li>
-                    <li>Terapias canabinoides personalizadas.</li>
-                    <li>Prescrição especializada de cannabis medicinal.</li>
-                    <li>Manejo de condições refratárias.</li>
-                    <li>Protocolos integrativos em saúde mental.</li>
-                    <li>Psicofarmacologia avançada.</li>
-                    <li>Emergências psiquiátricas.</li>
-                    <li>Dependência química.</li>
-                    <li>Psiquiatria infantojuvenil.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4 class="experience-title">Medicina Digital e Tecnologias Assistenciais</h4>
-                <ul class="experience-details">
-                    <li>Aplicação de IA no diagnóstico e acompanhamento clínico.</li>
-                    <li>Telemedicina e atendimento digital.</li>
-                    <li>Ferramentas digitais de apoio à decisão clínica.</li>
-                    <li>Monitoramento digital de pacientes.</li>
-                    <li>Análise preditiva em saúde mental.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h4 class="experience-title">Cuidados Paliativos</h4>
-                <ul class="experience-details">
-                    <li>Manejo de sintomas complexos.</li>
-                    <li>Comunicação de más notícias.</li>
-                    <li>Suporte ao luto.</li>
-                    <li>Cuidados de fim de vida.</li>
-                    <li>Abordagem familiar.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Afiliações Profissionais</h3>
-            <ul class="experience-details">
-                <li><i class="fas fa-users"></i> Membro - Society of Cannabis Clinicians (SCC)</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <div class="sidebar">
-                <h3 class="section-title-sidebar"><i class="fa-solid fa-certificate"></i> Certificações</h3>
-                <div class="sidebar-content">
-                    <ul class="sidebar-list">
-                        <li><strong class="education-period">2024</strong> <i class="fas fa-award"></i> AI in Healthcare - Stanford University</li>
-                        <li><strong class="education-period">2024</strong> <i class="fas fa-award"></i> Medical Neuroscience - Duke University</li>
-                        <li><i class="fas fa-award"></i> Gestão de Processos em Saúde - EEPHCFMUSP</li>
-                        <li><i class="fas fa-award"></i> Certificação Internacional em Medicina Endocanabinoide - IACM</li>
-                        <li><strong class="education-period">2024</strong> <i class="fas fa-award"></i> Clinical Cannabinoid Medicine Specialist - SCC</li>
-                    </ul>
-                </div>
-
-                <h3 class="section-title-sidebar"><i class="fa-solid fa-check-circle"></i> Competências Técnicas</h3>
-                <div class="skills">
-                    <div class="skill">Análise Técnica</div>
-                    <div class="skill">Pareceres Médicos</div>
-                    <div class="skill">Auditoria</div>
-                    <div class="skill">Protocolos Assistenciais</div>
-                    <div class="skill">Gestão em Saúde</div>
-                    <div class="skill">Rol ANS</div>
-                    <div class="skill">Relacionamento Médico</div>
-                    <div class="skill">Comunicação Científica</div>
-                    <div class="skill">Inglês Fluente</div>
-                    <div class="skill">Análise de Evidências</div>
-                    <div class="skill">Boas Práticas Clínicas</div>
-                    <div class="skill">Diretrizes ANVISA</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Experiência Internacional</h3>
-            <ul class="experience-details">
-                <li><strong class="international-experience-period">2018</strong> Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS</li>
-                <li><strong class="international-experience-period">2020-2023</strong> Membro da International AIDS Society</li>
-                <li><strong class="international-experience-period">2025</strong> Membro da Society of Cannabis Clinicians</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Idiomas</h3>
-            <div class="languages">
-                <div class="language">
-                    <h4 class="language-name">Português</h4>
-                    <p class="language-level">Nativo</p>
-                </div>
-                <div class="language">
-                    <h4 class="language-name">Inglês</h4>
-                    <p class="language-level">Fluente (TOEFL iBT 108/120)</p>
-                </div>
-                <div class="language">
-                    <h4 class="language-name">Espanhol</h4>
-                    <p class="language-level">Intermediário</p>
-                </div>
-              <div class="language">
-                    <h4 class="language-name">Francês</h4>
-                    <p class="language-level">Instrumental</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h3 class="section-title">Contato</h3>
-            <p>
-                Interessados em mais informações ou colaborações, por favor, entrem em contato por meio das informações acima.
-            </p>
-        </section>
+<body>
+<div class="container">
+  <div class="header">
+    <img src="foto_perfil.jpg" alt="Foto de Perfil" class="profile-pic">
+    <div class="header-content">
+      <h1>Dr. Gustavo Mendes e Silva</h1>
+      <h2>Médico | Psiquiatria - Cannabis Medicinal - Cuidados Paliativos</h2>
+      <div class="contact-info">
+        <div><span>CRM:</span> 218133/SP</div>
+        <div><span>Tel:</span> 11-96546-1146</div>
+        <div><span>Local:</span> Vila Olímpia, São Paulo</div>
+      </div>
     </div>
+  </div>
+  <section class="section">
+    <h3 class="section-title">Perfil Clínico</h3>
+    <p class="profile-text">Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de IA em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências. Membro da Society of Cannabis Clinicians (SCC).</p>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Experiência Clínica</h3>
+    <div class="experience-item">
+      <h4 class="experience-title">Atendimento em Saúde Mental</h4>
+      <ul class="experience-details">
+        <li>
+          <p><strong class="experience-period">Outubro 2024 - Atual</strong> <strong class="experience-title">Médico Psiquiatra</strong> - CAPS II Jaçanã Tremembé - Sociedade Brasileira Caminho de Damasco</p>
+          <ul>
+            <li>Atendimento especializado em transtornos mentais severos e persistentes.</li>
+            <li>Manejo de casos psiquiátricos complexos e situações de crise.</li>
+            <li>Coordenação de planos terapêuticos com equipe multidisciplinar.</li>
+            <li>Supervisão e suporte a casos complexos.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong class="experience-period">Maio 2024</strong> <strong class="experience-title">Médico Psiquiatra</strong> - CAPS IJ Diadema</p>
+          <ul>
+            <li>Atendimento psiquiátrico infantojuvenil especializado.</li>
+            <li>Intervenções familiares sistemáticas.</li>
+            <li>Manejo de crises em adolescentes.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong class="experience-period">Abril 2024 - Maio 2024</strong> <strong class="experience-title">Médico Psiquiatra</strong> - CAPS AD Diadema</p>
+          <ul>
+            <li>Tratamento especializado em dependência química.</li>
+            <li>Reabilitação psicossocial.</li>
+            <li>Prevenção de recaídas.</li>
+            <li>Grupos terapêuticos.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h4 class="experience-title">Emergências e Cuidados Intensivos</h4>
+      <ul class="experience-details">
+        <li>
+          <p><strong class="experience-period">Março 2024 - Junho 2024</strong> <strong class="experience-title">Médico Psiquiatra</strong> - UPA Jaçanã</p>
+          <ul>
+            <li>Atendimento de emergências psiquiátricas 24h.</li>
+            <li>Manejo de crises e emergências.</li>
+            <li>Avaliação e estabilização de pacientes agudos.</li>
+            <li>Intervenção em tentativas de suicídio.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h4 class="experience-title">Experiência em Cuidados Paliativos e Gestão do Cuidado</h4>
+      <ul class="experience-details">
+        <li>
+          <p><strong class="experience-period">2022 - 2023</strong> <strong class="experience-title">Médico Interlocutor de Rede</strong> - Associação Saúde da Família</p>
+          <ul>
+            <li>Implementação de protocolos de cuidados integrados.</li>
+            <li>Coordenação de equipes multiprofissionais.</li>
+            <li>Desenvolvimento de programas de suporte familiar.</li>
+            <li>Gestão de casos complexos.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong class="experience-period">2021 - 2022</strong> <strong class="experience-title">Médico Diarista</strong> - Hospital Psiquiátrico Cantareira - SPDM</p>
+          <ul>
+            <li>Atendimento diário em enfermaria.</li>
+            <li>Manejo de casos agudos e crônicos.</li>
+            <li>Desenvolvimento de protocolos assistenciais.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Formação Acadêmica</h3>
+    <div class="education-item">
+      <h4 class="education-level">Especialização em Psiquiatria</h4>
+      <ul class="education-details">
+        <li>
+          <p><strong class="education-period">2024</strong> <strong class="education-institution">FGMED</strong> - 492 horas</p>
+          <ul>
+            <li>Diagnóstico e tratamento avançado de transtornos mentais.</li>
+            <li>Psicofarmacologia avançada.</li>
+            <li>Psicopatologia.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong class="education-period">2024</strong> <strong class="education-institution">Sanar/Cetrus</strong> - 432 horas</p>
+          <ul>
+            <li>Semiologia psiquiátrica.</li>
+            <li>Raciocínio clínico em saúde mental.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="education-item">
+      <h4 class="education-level">Formação em Cuidados Paliativos</h4>
+      <ul class="education-details">
+        <li>
+          <p><strong class="education-period">2024-2025</strong> <strong class="education-institution">MJHS Institute for Innovation in Palliative Care</strong></p>
+          <ul>
+            <li>Programa avançado de formação em cuidados paliativos.</li>
+            <li>Inovação em cuidados de fim de vida.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong class="education-period">2024</strong> <strong class="education-institution">Palliative Care Program - University of Colorado</strong></p>
+          <ul>
+            <li>Abordagem moderna dos cuidados paliativos em módulos.</li>
+            <li>Supporting patients living with serious illness; providing psychosocial and spiritual support; pain management for your patients; easing non-pain physical symptons.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="education-item">
+      <h4 class="education-level">Formação em Medicina Endocanabinoide</h4>
+      <ul class="education-details">
+        <li>
+          <p><strong class="education-period">2024</strong> <strong class="education-institution">Clinical Cannabinoid Medicine Specialist - Society of Cannabis Clinicians</strong></p>
+          <ul>
+            <li>Certificação internacional em medicina canabinoide.</li>
+              </li>
+        <li>
+          <p><strong class="education-period">2024</strong> <strong class="education-institution">The Medical Cannabis Institute - TMCI Global</strong></p>
+          <ul>
+            <li>Clinical Applications of Medical Cannabis.</li>
+            <li>Endocannabinoid System in Clinical Practice.</li>
+            <li>Psychiatric Applications of Cannabinoids.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="education-item">
+      <h4 class="education-level">Graduação</h4>
+      <ul class="education-details">
+        <li>
+          <p><strong class="education-period">2020</strong> <strong class="education-institution">Medicina - FAMEMA</strong></p>
+          <ul>
+            <li>Faculdade Estadual de Medicina de Marília, SP.</li>
+            <li>Nota 5 ENADE.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Formação Complementar Clínica</h3>
+    <div class="education-item">
+      <h4 class="education-level">Cursos de Aperfeiçoamento</h4>
+      <ul class="education-details">
+        <li><strong class="education-period">2024</strong> Medical Neuroscience - Duke University.</li>
+        <li>Medicina Canabinoide - EEPHCFMUSP.</li>
+        <li>Transtornos do Sono - CENBRAP.</li>
+        <li>Terapia ACT - IBAC.</li>
+        <li>Dependência Química - Artmed360 (180h).</li>
+      </ul>
+    </div>
+    <div class="education-item">
+      <h4 class="education-level">Gestão e Tecnologia em Saúde</h4>
+      <ul class="education-details">
+        <li>(Em andamento) MBA em Health Tech - FIAP.</li>
+        <li><strong class="education-period">2024</strong> MBA em Gestão, Inovação e Serviços em Saúde - PUC-RS.</li>
+        <li><strong class="education-period">2024</strong> Especialização em Tecnologia e Dados em Saúde - PUC-PR.</li>
+        <li><strong class="education-period">2024</strong> AI in Healthcare - Stanford University.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Áreas de Expertise Clínica</h3>
+    <div class="experience-item">
+      <h4 class="experience-title">Psiquiatria e Medicina Endocanabinoide</h4>
+      <ul class="experience-details">
+        <li>Sistema Endocanabinoide e Neuropsiquiatria.</li>
+        <li>Modulação Endocanabinoide em Transtornos Mentais.</li>
+        <li>Terapias canabinoides personalizadas.</li>
+        <li>Prescrição especializada de cannabis medicinal.</li>
+        <li>Manejo de condições refratárias.</li>
+        <li>Protocolos integrativos em saúde mental.</li>
+        <li>Psicofarmacologia avançada.</li>
+        <li>Emergências psiquiátricas.</li>
+        <li>Dependência química.</li>
+        <li>Psiquiatria infantojuvenil.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h4 class="experience-title">Medicina Digital e Tecnologias Assistenciais</h4>
+      <ul class="experience-details">
+        <li>Aplicação de IA no diagnóstico e acompanhamento clínico.</li>
+        <li>Telemedicina e atendimento digital.</li>
+        <li>Ferramentas digitais de apoio à decisão clínica.</li>
+        <li>Monitoramento digital de pacientes.</li>
+        <li>Análise preditiva em saúde mental.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h4 class="experience-title">Cuidados Paliativos</h4>
+      <ul class="experience-details">
+        <li>Manejo de sintomas complexos.</li>
+        <li>Comunicação de más notícias.</li>
+        <li>Suporte ao luto.</li>
+        <li>Cuidados de fim de vida.</li>
+        <li>Abordagem familiar.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Afiliações Profissionais</h3>
+    <ul class="experience-details">
+      <li>Membro - Society of Cannabis Clinicians (SCC)</li>
+    </ul>
+  </section>
+  <section class="section">
+    <div class="sidebar">
+      <h3 class="section-title-sidebar">Certificações</h3>
+      <div class="sidebar-content">
+        <ul class="sidebar-list">
+          <li><strong class="education-period">2024</strong> AI in Healthcare - Stanford University</li>
+          <li><strong class="education-period">2024</strong> Medical Neuroscience - Duke University</li>
+          <li>Gestão de Processos em Saúde - EEPHCFMUSP</li>
+          <li>Certificação Internacional em Medicina Endocanabinoide - IACM</li>
+          <li><strong class="education-period">2024</strong> Clinical Cannabinoid Medicine Specialist - SCC</li>
+        </ul>
+      </div>
+      <h3 class="section-title-sidebar">Competências Técnicas</h3>
+      <div class="skills">
+        <div class="skill">Análise Técnica</div>
+        <div class="skill">Pareceres Médicos</div>
+        <div class="skill">Auditoria</div>
+        <div class="skill">Protocolos Assistenciais</div>
+        <div class="skill">Gestão em Saúde</div>
+        <div class="skill">Rol ANS</div>
+        <div class="skill">Relacionamento Médico</div>
+        <div class="skill">Comunicação Científica</div>
+        <div class="skill">Inglês Fluente</div>
+        <div class="skill">Análise de Evidências</div>
+        <div class="skill">Boas Práticas Clínicas</div>
+        <div class="skill">Diretrizes ANVISA</div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Experiência Internacional</h3>
+    <ul class="experience-details">
+      <li><strong class="international-experience-period">2018</strong> Representante Brasileiro na 56ª Assembleia Geral da OMS/OPAS</li>
+      <li><strong class="international-experience-period">2020-2023</strong> Membro da International AIDS Society</li>
+      <li><strong class="international-experience-period">2025</strong> Membro da Society of Cannabis Clinicians</li>
+    </ul>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Idiomas</h3>
+    <div class="languages">
+      <div class="language">
+        <h4 class="language-name">Português</h4>
+        <p class="language-level">Nativo</p>
+      </div>
+      <div class="language">
+        <h4 class="language-name">Inglês</h4>
+        <p class="language-level">Fluente (TOEFL iBT 108/120)</p>
+      </div>
+      <div class="language">
+        <h4 class="language-name">Espanhol</h4>
+        <p class="language-level">Intermediário</p>
+      </div>
+      <div class="language">
+        <h4 class="language-name">Francês</h4>
+        <p class="language-level">Instrumental</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h3 class="section-title">Contato</h3>
+    <p>Interessados em mais informações ou colaborações, por favor, entrem em contato por meio das informações acima.</p>
+  </section>
+</div>
 </body>
 </html>
