@@ -34,10 +34,12 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2.5fr 1fr;
+  grid-template-areas: 
+    "header header"
+    "main sidebar";
   gap: 2rem;
   padding: 2rem;
 }
-
 .header {
   grid-column: 1 / -1;
   display: grid;
