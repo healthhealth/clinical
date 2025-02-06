@@ -54,6 +54,7 @@
             border-bottom: 1pt solid var(--cor-destaque);
             padding-bottom: 15pt;
             margin-bottom: 20pt;
+            break-after: avoid; /* Evita quebra de página APÓS o cabeçalho */
         }
 
         .header img {
@@ -101,6 +102,9 @@
 
         .section {
             margin-bottom: 25pt;
+            /* break-inside: avoid;  <- REMOVIDO */
+        }
+        .perfil-clinico {
             break-inside: avoid;
         }
 
@@ -213,7 +217,8 @@
                     "main"
                     "sidebar";
                 gap: 10pt;
-                padding: 10pt;
+                padding: 0; /*Zerei o padding, para evitar espaçamentos desnecessários*/
+                margin: 0;
             }
 
             .sidebar {
@@ -237,6 +242,12 @@
             .item {
               box-shadow: none; /* Remove sombra na impressão */
               border-radius: 0; /*Remove borda arredondada na impressão*/
+            }
+
+            .header,
+            .perfil-clinico {
+                page-break-after: avoid; /*Para navegadores mais antigos*/
+                break-after: avoid;
             }
         }
 
@@ -269,7 +280,7 @@
         </header>
 
         <main>
-            <section class="section">
+            <section class="section perfil-clinico">
                 <h2 class="section-title">Perfil Clínico</h2>
                 <p>Médico psiquiatra com formação especializada em saúde mental, cannabis medicinal e cuidados paliativos, integrando tecnologias avançadas à prática clínica. Experiência no manejo de casos complexos, prescrição de cannabis medicinal e aplicação de IA em processos assistenciais. Pioneiro na integração de terapias canabinoides e tecnologias digitais ao tratamento psiquiátrico, com foco em cuidado humanizado e baseado em evidências. Membro da Society of Cannabis Clinicians (SCC).</p>
             </section>
@@ -306,7 +317,7 @@
 
                 <div class="item">
                     <div class="item-title">Médico Psiquiatra</div>
-                   <div class="item-subtitle">CAPS AD Diadema</div>
+                    <div class="item-subtitle">CAPS AD Diadema</div>
                     <div class="item-period">Abril 2024 - Maio 2024</div>
                     <div class="item-details">
                         <ul>
@@ -339,9 +350,9 @@
                     <div class="item-details">
                         <ul>
                             <li>Implementação de protocolos de cuidados integrados</li>
-                            <li>Liderou educação permanente para médicos da rede</li>
-                            <li>Desenvolvi o Painel Assistencial usado pelas UPAs e AMAs</li>
-                            <li>Apoiei às redes de atenção, fortalecendo-as e otimizando seus processos</li>
+                            <li>Coordenação de equipes multiprofissionais</li>
+                            <li>Desenvolvimento de programas de suporte familiar</li>
+                            <li>Gestão de casos complexos</li>
                         </ul>
                     </div>
                 </div>
