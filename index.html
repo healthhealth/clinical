@@ -159,55 +159,51 @@ body {
 }
 
 @media print {
-  :root {
-    --accent: #000;
-    --primary: #000;
-    --secondary: #333;
-    --text: #000;
-    --border: #ccc;
-  }
-  
-  body {
-    font-size: 11pt;
-    line-height: 1.3;
-  }
-  
   .page {
+    display: block;
     padding: 0;
     max-width: none;
   }
-  
+
+  .sidebar {
+    display: block;
+    background: none;
+    padding: 0;
+    margin-top: 2rem;
+  }
+
   .header {
+    display: flex;
     gap: 1rem;
+    border-bottom-color: #000;
   }
-  
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .header-content h1 {
-    font-size: 24pt;
-  }
-  
-  .header-content h2 {
-    font-size: 14pt;
-  }
-  
-  .section-title {
-    font-size: 16pt;
-  }
-  
+
   .experience-item, .education-item {
-    page-break-inside: auto;
+    break-inside: avoid;
     border: none;
     padding: 0.5rem 0;
   }
-  
-  .sidebar {
-    break-before: page;
+
+  .skills-grid {
+    display: block;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    margin: 0.25rem;
     background: none;
+    border: 1px solid #000;
+  }
+
+  .languages-grid {
+    display: block;
+  }
+
+  .language-item {
+    display: inline-block;
+    margin-right: 1rem;
     padding: 0;
+    border: none;
   }
 }
 </style>
